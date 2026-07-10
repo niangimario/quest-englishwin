@@ -264,7 +264,7 @@ function LevelSelect({
           <p>
             6 níveis, para aprender inglês em até 60 dias COMPROVADO. Traduz a
             frase do inglês para português. Mesmo que errares, avanças para a
-            próxima pergunta — sem travar o teu progresso!
+            próxima pergunta sem travar o teu progresso!
           </p>
         </header>
 
