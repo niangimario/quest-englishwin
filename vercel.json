@@ -2,7 +2,7 @@
   "buildCommand": "npm run build",
   "installCommand": "npm install",
   "framework": "vite",
-  "nodejs": "20.x",
+  "nodeVersion": "20.x",
   "env": {
     "NODE_ENV": "production"
   },
