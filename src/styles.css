@@ -1,0 +1,574 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+/* Interface simples e compatível com telemóveis antigos. */
+.simple-page {
+  min-height: 100vh;
+  background: #10233f;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.simple-container {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px 14px;
+  box-sizing: border-box;
+}
+
+.level-screen {
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.app-name,
+.eyebrow,
+.paywall-badge {
+  display: inline-block;
+  background: #123f4d;
+  color: #7ff0c8;
+  border: 1px solid #2ab889;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+}
+
+.intro h1,
+.question-box h1,
+.paywall-box h2 {
+  margin: 14px 0 0;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.intro h1 {
+  font-size: 34px;
+}
+
+.intro h1 span,
+.paywall-box h2 span {
+  color: #69e6b1;
+}
+
+.intro p,
+.level-info p,
+.paywall-box p {
+  line-height: 1.55;
+}
+
+.intro p {
+  max-width: 620px;
+  margin: 14px auto 0;
+  color: #dbeafe;
+}
+
+.level-list,
+.answer-list {
+  display: block;
+}
+
+.level-button,
+.answer-button {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  padding: 16px;
+  color: #ffffff;
+  background: #18365f;
+  border: 1px solid #365b8d;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.level-button:hover,
+.answer-button:hover {
+  background: #214773;
+}
+
+.level-locked {
+  opacity: 0.8;
+  background: #26364b;
+}
+
+.level-number,
+.answer-letter {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  border-radius: 6px;
+  background: #21c487;
+  color: #062018;
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.level-locked .level-number {
+  background: #6b7280;
+  color: #ffffff;
+}
+
+.level-info {
+  flex: 1 1 auto;
+}
+
+.level-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.level-info h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.level-info p {
+  margin: 6px 0 0;
+  color: #c9d8ec;
+  font-size: 14px;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 3px 7px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.complete-pill {
+  background: #0f6b4c;
+  color: #c6f6df;
+}
+
+.locked-pill {
+  background: #46566d;
+  color: #eef2f7;
+}
+
+.arrow-mark {
+  flex: 0 0 auto;
+  color: #c9d8ec;
+  font-size: 22px;
+}
+
+.tip-text {
+  margin-top: 28px;
+  text-align: center;
+  color: #b9c8dc;
+  font-size: 13px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.level-progress-text {
+  color: #dbeafe;
+  font-size: 14px;
+  text-align: right;
+}
+
+.plain-button,
+.buy-link,
+.close-offer-button {
+  border-radius: 6px;
+  border: 0;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.plain-button {
+  display: inline-block;
+  padding: 11px 16px;
+  font-size: 15px;
+}
+
+.secondary-button {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.primary-button {
+  margin-top: 18px;
+  background: #21c487;
+  color: #062018;
+}
+
+.light-button {
+  margin-top: 18px;
+  background: #ffffff;
+  color: #111827;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  margin-bottom: 24px;
+  background: #2d4c77;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #21c487;
+}
+
+.question-box {
+  margin-bottom: 24px;
+  padding: 24px 16px;
+  text-align: center;
+  background: #18365f;
+  border: 1px solid #365b8d;
+  border-radius: 8px;
+}
+
+.question-box h1 {
+  font-size: 30px;
+}
+
+.answer-button:disabled {
+  cursor: default;
+}
+
+.answer-correct,
+.answer-correct-soft {
+  background: #116c4e;
+  border-color: #35d399;
+}
+
+.answer-wrong {
+  background: #8a1f2d;
+  border-color: #f87171;
+}
+
+.message-box {
+  margin-top: 22px;
+  padding: 22px 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.wrong-box {
+  background: #7f1d1d;
+  border: 1px solid #f87171;
+}
+
+.correct-box {
+  background: #0f6b4c;
+  border: 1px solid #35d399;
+}
+
+.message-title {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.message-text {
+  margin-top: 10px;
+  font-size: 19px;
+}
+
+.message-small {
+  margin-top: 8px;
+  color: #f3f4f6;
+  font-size: 14px;
+}
+
+.paywall-overlay {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #07111f;
+  padding: 14px;
+  overflow-y: auto;
+}
+
+.paywall-box {
+  max-width: 520px;
+  margin: 24px auto;
+  padding: 26px 16px;
+  box-sizing: border-box;
+  text-align: center;
+  background: #10233f;
+  border: 2px solid #21c487;
+  border-radius: 10px;
+}
+
+.paywall-box h2 {
+  font-size: 28px;
+}
+
+.paywall-box p {
+  margin: 16px auto 0;
+  max-width: 410px;
+  color: #dbeafe;
+}
+
+.price-box {
+  margin: 22px auto 0;
+  padding: 14px;
+  max-width: 320px;
+  background: #ffffff;
+  color: #111827;
+  border-radius: 8px;
+}
+
+.old-price {
+  color: #6b7280;
+  text-decoration: line-through;
+  font-size: 14px;
+}
+
+.new-price {
+  display: inline-block;
+  margin-left: 8px;
+  color: #047857;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.price-note {
+  display: block;
+  margin-top: 6px;
+  color: #374151;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.buy-link {
+  display: block;
+  margin: 22px auto 0;
+  max-width: 390px;
+  padding: 16px 18px;
+  background: #21c487;
+  color: #062018;
+  font-size: 17px;
+}
+
+.close-offer-button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 12px;
+  background: transparent;
+  color: #dbeafe;
+  font-size: 14px;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .simple-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .intro h1 {
+    font-size: 28px;
+  }
+
+  .question-box h1 {
+    font-size: 25px;
+  }
+
+  .paywall-box h2 {
+    font-size: 24px;
+  }
+
+  .top-bar {
+    display: block;
+  }
+
+  .level-progress-text {
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  .level-button,
+  .answer-button {
+    padding: 13px;
+    gap: 10px;
+  }
+
+  .level-number,
+  .answer-letter {
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+  }
+
+  .new-price {
+    display: block;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+}
